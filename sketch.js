@@ -38,12 +38,12 @@ function drawTitle(){
   text("ABC → 123",windowWidth/2,windowHeight*0.25);
   text("123 → ABC",windowWidth/2,windowHeight*0.75);
 }
-function handleInput(){
+function handleInput(x, y){
   if(gameState==="TITLE"){
-    if(mouseX>windowWidth*0.1 && mouseX<windowWidth*0.9 && mouseY>windowHeight*0.1 && mouseY<windowHeight*0.4){
+    if(x>windowWidth*0.1 && x<windowWidth*0.9 && y>windowHeight*0.1 && y<windowHeight*0.4){
       quizMode=0;
       gameState="ANSWER";
-    }else if(mouseX>windowWidth*0.1 && mouseX<windowWidth*0.9 && mouseY>windowHeight*0.6 && mouseY<windowHeight*0.9){
+    }else if(x>windowWidth*0.1 && x<windowWidth*0.9 && y>windowHeight*0.6 && y<windowHeight*0.9){
       quizMode=1;
       gameState="ANSWER";
     }
@@ -56,11 +56,11 @@ function handleInput(){
   }
 }
 function mousePressed(){
-  handleInput();
+  handleInput(mouseX, mouseY);
   return false;
 }
 function touchStarted(){
-  handleInput();
+  handleInput(touches[0].x, touches[0].y);
   return false;
 }
 function draw() {
