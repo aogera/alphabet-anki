@@ -38,7 +38,7 @@ function drawTitle(){
   text("ABC → 123",windowWidth/2,windowHeight*0.25);
   text("123 → ABC",windowWidth/2,windowHeight*0.75);
 }
-function mouseIsPressed(){
+function handleInput(){
   if(gameState==="TITLE"){
     if(mouseX>windowWidth*0.1 && mouseX<windowWidth*0.9 && mouseY>windowHeight*0.1 && mouseY<windowHeight*0.4){
       quizMode=0;
@@ -54,6 +54,14 @@ function mouseIsPressed(){
   }else if(gameState==="QUESTION"){
     gameState="ANSWER";
   }
+}
+function mousePressed(){
+  handleInput();
+  return false;
+}
+function touchStarted(){
+  handleInput();
+  return false;
 }
 function draw() {
   background(220);
